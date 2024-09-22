@@ -23,7 +23,11 @@ export class Address{
     }
 
     // logic for validate de addres;
-    validate(){
+    public validate(){
 
+    }
+
+    public getFullAddress(){
+        return `${this.addres}, ${this.city}, ${this.state}, ${this.country}, ${this.postalCode}`;
     }
 }
