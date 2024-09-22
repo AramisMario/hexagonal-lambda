@@ -11,6 +11,9 @@ export class Entity{
         this.state = state;
     }
 
+
+    // validation and bussiness logic for the entity
+
     public isAllowed(){
         return this.state !== "LOCKED";
     }
@@ -20,5 +23,7 @@ export class Entity{
             this.firstAttribute = this.firstAttribute - amount;
         }
     }
+
+
 
 }
