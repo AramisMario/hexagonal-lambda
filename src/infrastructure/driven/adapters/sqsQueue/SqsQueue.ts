@@ -1,12 +1,14 @@
-export class SqsQueue{
+import { SqsQueuePort } from "../../../../application/ports/sqsQueue/sqsQueuePort";
+export class SqsQueue implements SqsQueuePort{
     private queueUrl: string;
     private SQS:any;
     constructor(queueUrl: string){
         this.queueUrl = queueUrl;
     }
 
-    sendQueueMessage(){
+    sendQueueMessage(data: object){
         // codigo para enviar mensaje a la cola
+        return Promise.resolve("messageId");
     }
 
 }
