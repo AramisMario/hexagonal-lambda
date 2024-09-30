@@ -1,4 +1,5 @@
-export class ThridPartyApiAdapter{
+import { ThirdPartyApiPort } from "../../../../application/ports/thirdPartyApi/thirdPartyApiPort";
+export class ThridPartyApiAdapter implements ThirdPartyApiPort{
 
     private url: string;
 
