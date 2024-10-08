@@ -24,6 +24,17 @@ export class Entity{
         }
     }
 
+    public getState(){
+        return this.state;
+    }
+
+    public getFirstAttribute(){
+        return this.firstAttribute;
+    }
+
+    public getSecondAttribute(){
+        return this.secondAttribute;
+    }
 
 
 }

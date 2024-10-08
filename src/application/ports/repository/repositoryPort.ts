@@ -1,6 +1,7 @@
+import { Entity } from "../../../domain/entities/Entity"
 export interface RepositoryPort{
-    create(): Promise<any>
-    update(): Promise<any>
-    findByID<T>(id: T): Promise<any>
-    delete(): Promise<any>
+    create(data:any): Promise<Entity>
+    update(entity:Entity): Promise<Entity>
+    findByID<T>(id: T): Promise<Entity>
+    delete(entity: Entity): Promise<any>
 }
