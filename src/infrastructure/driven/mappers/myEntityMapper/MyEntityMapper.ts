@@ -11,15 +11,13 @@ export class MyEntityMapper{
     }
 
     mapToEntity(record: any){
-        const firstAttribute = record.first;
-        const secondAttribute = record.second;
-        const state = record.state;
+        const props = {
+            firstAttribute: record.first,
+            secondAttribute: record.second,
+            state: record.state
+        };
 
-        return new Entity(
-            firstAttribute,
-            secondAttribute,
-            state
-        )
+        return new Entity(props);
     }
 
 }
