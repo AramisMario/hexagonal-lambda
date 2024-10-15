@@ -5,10 +5,10 @@ export class Entity{
     private firstAttribute: number;
     private secondAttribute: number;
 
-    constructor(firstAttribute: number, secondAttribute: number, state:string){
-        this.firstAttribute = firstAttribute;
-        this.secondAttribute = secondAttribute;
-        this.state = state;
+    constructor(props: any){
+        this.firstAttribute = props.firstAttribute;
+        this.secondAttribute = props.secondAttribute;
+        this.state = props.state;
     }
 
 
@@ -24,6 +24,17 @@ export class Entity{
         }
     }
 
+    public getState(){
+        return this.state;
+    }
+
+    public getFirstAttribute(){
+        return this.firstAttribute;
+    }
+
+    public getSecondAttribute(){
+        return this.secondAttribute;
+    }
 
 
 }
