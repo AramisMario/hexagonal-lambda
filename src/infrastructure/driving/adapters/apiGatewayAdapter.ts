@@ -1,6 +1,8 @@
 import { RequestDTO } from "../DTOs/RequestDTO";
 import { ResponseDTO } from "../DTOs/ResponseDTO";
-export const apigatewayAdapter = (useCase: any) => async (event:any,dependencies:any) => {
+import { useCaseType } from "../../../application/useCases/useCase";
+
+export const apigatewayAdapter = (useCase: useCaseType) => async (event:any,dependencies:any) => {
 
     try{
         const body = event.body;
