@@ -1,5 +1,6 @@
-import { RepositoryPort } from "../ports/repository/repositoryPort";
+import { CaseData } from "../../domain/models/caseData";
 import { SqsQueuePort } from "../ports/sqsQueue/sqsQueuePort";
+import { RepositoryPort } from "../ports/repository/repositoryPort";
 import { ThirdPartyApiPort } from "../ports/thirdPartyApi/thirdPartyApiPort";
 
 export type dependenciesType = {
@@ -8,15 +9,15 @@ export type dependenciesType = {
     repository: RepositoryPort
 };
 
-export type useCaseType = (data:any, dependencies:dependenciesType) => Promise<any>;
+export type useCaseType = (data:CaseData, dependencies:dependenciesType) => Promise<any>;
 
-export const useCase = ():useCaseType => async (data:any, dependencies:dependenciesType) => {
+export const useCase = ():useCaseType => async (data:CaseData, dependencies:dependenciesType) => {
 
     const { thirdPartyApi, messageQueue, repository } = dependencies;
 
     try{
-        const resultApi = await thirdPartyApi.callThirdPartyAPI(data);
-        const entity = await repository.findByID(resultApi.customNumber);
+        
+        const entity = await repository.findByID(data.account);
 
         if(!entity.isAllowed()){
             throw new Error("Not allowed");
@@ -24,6 +25,8 @@ export const useCase = ():useCaseType => async (data:any, dependencies:dependenc
 
         entity.debit(data.amount);
         const result = await repository.update(entity);
+
+        await thirdPartyApi.callThirdPartyAPI(data);
         await messageQueue.sendQueueMessage(result);
 
     }catch(error){
