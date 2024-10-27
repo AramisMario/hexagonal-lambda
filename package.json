@@ -1,0 +1,24 @@
+{
+  "name": "hexagonal-lambda",
+  "version": "1.0.0",
+  "description": "Hexagonal architecture archetype for use in lambdas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AramisMario/hexagonal-lambda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AramisMario/hexagonal-lambda/issues"
+  },
+  "homepage": "https://github.com/AramisMario/hexagonal-lambda#readme",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "aws-sdk": "^2.1691.0"
+  }
+}

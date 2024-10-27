@@ -5,8 +5,9 @@ import { QUEUE_URL, THIRD_PARTY_URL } from "../../../utils/constants";
 import { ThridPartyApiAdapter } from "../../driven/adapters/thirdPartyApi/thirdPartyApi";
 import { EntityMysqlRepository } from "../../driven/repositories/myEntityRepository/EntityMySqlRepository";
 import { MyEntityMapper } from "../../driven/mappers/myEntityMapper/MyEntityMapper";
+import { APIGatewayProxyEventV2 } from "aws-lambda";
 
-export const handler = async (event:any) => {
+export const handler = async (event:APIGatewayProxyEventV2) => {
 
     const dependencies = {
         thirdPartyApi: new ThridPartyApiAdapter(THIRD_PARTY_URL),
