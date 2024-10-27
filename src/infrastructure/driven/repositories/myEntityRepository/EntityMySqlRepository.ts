@@ -51,4 +51,19 @@ export class EntityMysqlRepository implements RepositoryPort{
         // make your query
         return Promise.resolve(true);
     }
+
+    async transaction(entity: Entity, transactionType: string, amount: number): Promise<any> {
+        const account = this.mapper.mapToRepository(entity);
+
+        // auto invoekd function to mock a transaction
+        const transactionResul =  await (() => {
+            console.log(`Doing transaction ${transactionType} amount: ${amount}`);
+            return {
+                debited: 1500,
+                cost: 0,
+            }
+        })();
+
+        return transactionResul;
+    }
 }
