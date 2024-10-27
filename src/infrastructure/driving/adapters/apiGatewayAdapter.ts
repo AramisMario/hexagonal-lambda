@@ -1,11 +1,12 @@
 import { RequestDTO } from "../DTOs/RequestDTO";
 import { ResponseDTO } from "../DTOs/ResponseDTO";
 import { useCaseType } from "../../../application/useCases/useCase";
+import { APIGatewayProxyEventV2 } from "aws-lambda";
 
-export const apigatewayAdapter = (useCase: useCaseType) => async (event:any,dependencies:any) => {
+export const apigatewayAdapter = (useCase: useCaseType) => async (event:APIGatewayProxyEventV2,dependencies:any) => {
 
     try{
-        const body = event.body;
+        const body = JSON.parse(event.body);
 
         const requestDTO = new RequestDTO(
             body.account,
