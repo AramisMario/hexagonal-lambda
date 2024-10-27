@@ -2,7 +2,7 @@ import { CaseData } from "../../domain/models/caseData";
 import { SqsQueuePort } from "../ports/sqsQueue/sqsQueuePort";
 import { RepositoryPort } from "../ports/repository/repositoryPort";
 import { ThirdPartyApiPort } from "../ports/thirdPartyApi/thirdPartyApiPort";
-
+import { EntityPreconditionFailed } from "../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
 export type dependenciesType = {
     thirdPartyApi: ThirdPartyApiPort,
     messageQueue: SqsQueuePort,
@@ -20,7 +20,7 @@ export const useCase = ():useCaseType => async (data:CaseData, dependencies:depe
         const entity = await repository.findByID(data.account);
 
         if(!entity.isAllowed()){
-            throw new Error("Not allowed");
+            throw new EntityPreconditionFailed();
         }
 
         entity.debit(data.amount);
