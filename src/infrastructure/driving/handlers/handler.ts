@@ -2,7 +2,7 @@ import { useCase } from "../../../application/useCases/useCase";
 import { apigatewayAdapter } from "../adapters/apiGatewayAdapter";
 import { SqsQueue } from "../../driven/adapters/sqsQueue/SqsQueue";
 import { QUEUE_URL, THIRD_PARTY_URL } from "../../../utils/constants";
-import { ThridPartyApiAdapter } from "../../driven/adapters/thirdPartyApi/thirdPartyApi";
+import { ThridPartyApiAdapter } from "../../driven/adapters/thirdPartyApi/ThirdPartyApi";
 import { EntityMysqlRepository } from "../../driven/repositories/myEntityRepository/EntityMySqlRepository";
 import { MyEntityMapper } from "../../driven/mappers/myEntityMapper/MyEntityMapper";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
