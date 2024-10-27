@@ -4,4 +4,5 @@ export interface RepositoryPort{
     update(entity:Entity): Promise<Entity>
     findByID<T>(id: T): Promise<Entity>
     delete(entity: Entity): Promise<any>
+    transaction(entity: Entity, transactionType: string, amount: number): Promise<any>
 }
