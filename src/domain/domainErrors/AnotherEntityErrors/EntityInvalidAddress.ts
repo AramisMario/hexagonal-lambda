@@ -1,4 +1,4 @@
-import { BaseError } from "../../../utils/errors/BaseError";
+import { BaseError } from "../BaseError/BaseError";
 
 export class EntityInvalidAddressError extends BaseError{
 
