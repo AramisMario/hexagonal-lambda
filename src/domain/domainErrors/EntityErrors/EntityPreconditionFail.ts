@@ -1,4 +1,4 @@
-import { BaseError } from "../../../utils/errors/BaseError";
+import { BaseError } from "../BaseError/BaseError";
 
 export class EntityPreconditionFailed extends BaseError{
     static readonly code = 'PRECONDITION_FAILED';
