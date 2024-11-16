@@ -6,6 +6,7 @@ import { HTTP_RESPONSES } from "../../../utils/constants";
 import { UseCasePort } from "../../../application/ports/primaryPorts/useCase/UseCasePort";
 import { EntityPreconditionFailed } from "../../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
 import { dependenciesType } from "../../../application/useCases/useCase";
+import { TransactionValidationFail } from "../../../domain/domainErrors/EntityErrors/TransactionValidationFail";
 export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatewayProxyEventV2,dependencies:dependenciesType) => {
 
     try{
@@ -39,6 +40,12 @@ export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatew
                     EntityPreconditionFailed.code,
                     EntityPreconditionFailed.message
                 );
+            case TransactionValidationFail.code:
+                return Utils.response(
+                    412,
+                    TransactionValidationFail.code,
+                    TransactionValidationFail.message
+                )
             default:
                 return Utils.response(
                     HTTP_RESPONSES.INTERNAL_SERVER_ERROR.httpCode,

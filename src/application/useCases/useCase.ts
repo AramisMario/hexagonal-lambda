@@ -39,6 +39,7 @@ export class UseCase implements UseCasePort{
             return response;
     
         }catch(error){
+            
             // some logic needed to handle de error or using a logger
             throw error;
         }
