@@ -13,5 +13,11 @@ export const HTTP_RESPONSES = {
         httpCode: 200,
         code: "SUCCESSFUL",
         message: "Exitoso"
+    },
+
+    BAD_REQUEST:{
+        httpCode: 400,
+        code: "BAD_REQUEST",
+        message: "Error en los parametros de solicitud"
     }
 }

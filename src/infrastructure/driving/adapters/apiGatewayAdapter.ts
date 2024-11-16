@@ -3,20 +3,28 @@ import { RequestDTO } from "../DTOs/RequestDTO";
 import { ResponseDTO } from "../DTOs/ResponseDTO";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { HTTP_RESPONSES } from "../../../utils/constants";
-import { UseCasePort } from "../../../application/ports/primaryPorts/useCase/UseCasePort";
+import { UseCasePort } from "../../../application/ports/primaryPorts/useCase/useCasePort";
 import { EntityPreconditionFailed } from "../../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
 import { dependenciesType } from "../../../application/useCases/useCase";
 import { TransactionValidationFail } from "../../../domain/domainErrors/EntityErrors/TransactionValidationFail";
+import { BodyMapper } from "../mappers/BodyMapper";
+import { validate } from "class-validator";
 export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatewayProxyEventV2,dependencies:dependenciesType) => {
 
     try{
         const body = JSON.parse(event.body as string);
 
-        const requestDTO = new RequestDTO(
-            body.account,
-            body.amount
-        );
-        // agregar validaciones de body
+        const requestDTO = BodyMapper.mapToDTO(body);
+
+        const isValid = (await validate(requestDTO)).length > 0 ? false : true;
+
+        if(!isValid){
+            return Utils.response(
+                400,
+                HTTP_RESPONSES.BAD_REQUEST.code,
+                HTTP_RESPONSES.BAD_REQUEST.message
+            );
+        }
 
         const result = await useCase.exec(requestDTO,dependencies);
 

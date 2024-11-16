@@ -5,7 +5,7 @@ import { RepositoryPort } from "../ports/secundaryPorts/repository/repositoryPor
 import { DebitedSuccessful } from "../../domain/models/debitedSucess";
 import { ThirdPartyApiPort } from "../ports/secundaryPorts/thirdPartyApi/thirdPartyApiPort";
 import { EntityPreconditionFailed } from "../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
-import { UseCasePort } from "../ports/primaryPorts/useCase/UseCasePort";
+import { UseCasePort } from "../ports/primaryPorts/useCase/useCasePort";
 
 export type dependenciesType = {
     thirdPartyApi: ThirdPartyApiPort,
