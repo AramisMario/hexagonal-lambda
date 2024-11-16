@@ -1,4 +1,4 @@
-import { SqsQueuePort } from "../../../../application/ports/sqsQueue/sqsQueuePort";
+import { SqsQueuePort } from "../../../../application/ports/secundaryPorts/sqsQueue/sqsQueuePort";
 export class SqsQueue implements SqsQueuePort{
     private queueUrl: string;
     private SQS:any;

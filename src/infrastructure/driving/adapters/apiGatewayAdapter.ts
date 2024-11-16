@@ -3,10 +3,10 @@ import { RequestDTO } from "../DTOs/RequestDTO";
 import { ResponseDTO } from "../DTOs/ResponseDTO";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { HTTP_RESPONSES } from "../../../utils/constants";
-import { useCaseType } from "../../../application/useCases/useCase";
+import { UseCasePort } from "../../../application/ports/primaryPorts/useCase/UseCasePort";
 import { EntityPreconditionFailed } from "../../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
-
-export const apigatewayAdapter = (useCase: useCaseType) => async (event:APIGatewayProxyEventV2,dependencies:any) => {
+import { dependenciesType } from "../../../application/useCases/useCase";
+export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatewayProxyEventV2,dependencies:dependenciesType) => {
 
     try{
         const body = JSON.parse(event.body as string);
@@ -17,7 +17,7 @@ export const apigatewayAdapter = (useCase: useCaseType) => async (event:APIGatew
         );
         // agregar validaciones de body
 
-        const result = await useCase(requestDTO,dependencies);
+        const result = await useCase.exec(requestDTO,dependencies);
 
         const responseData = new ResponseDTO(
             result.debitedAmount,
