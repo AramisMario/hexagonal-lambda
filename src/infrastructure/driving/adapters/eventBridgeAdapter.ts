@@ -20,5 +20,5 @@ export const eventBridgeAdapter = (useCase: UseCasePort) => async (event:EventBr
         // use a logger to log the validation
     }
 
-    await useCase.exec(requestDTO,dependencies);
+    return await useCase.exec(requestDTO,dependencies);
 }

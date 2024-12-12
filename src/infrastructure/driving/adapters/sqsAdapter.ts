@@ -12,7 +12,7 @@ import { validate } from "class-validator";
 export const sqsAdapter = (useCase: UseCasePort) => async (event:SQSEvent,dependencies:dependenciesType) => {
 
     const records = event.Records;
-    
+    const responses = [];
     for(const record of records){
         const requestDTO = BodyMapper.mapToDTO(record.body);
         const isValid = (await validate(requestDTO)).length > 0 ? false : true;
@@ -21,7 +21,9 @@ export const sqsAdapter = (useCase: UseCasePort) => async (event:SQSEvent,depend
             // use a logger to log the validation
         }
 
-        await useCase.exec(requestDTO,dependencies);
+        const response = await useCase.exec(requestDTO,dependencies);
+        responses.push(response);
     }
 
+    return responses;
 }
