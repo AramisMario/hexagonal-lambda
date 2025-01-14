@@ -1,3 +1,3 @@
-export interface FindAccountCaseCasePort{
-    exec(account: string): Promise<any>
+export interface FindAccountCasePort{
+    exec(account: string, dependencies): Promise<any>
 }
