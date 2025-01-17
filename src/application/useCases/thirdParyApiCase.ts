@@ -1,5 +1,5 @@
 import { ThirdPartyApiCasePort } from "../ports/primaryPorts/useCases/thirdPartyApiCasePort";
-import { ThirdPartyApiPort } from "../ports/secundaryPorts/thirdPartyApi/thirdPartyApiPort";
+import { ThirdPartyApiPort } from "../ports/secondaryPorts/thirdPartyApi/thirdPartyApiPort";
 
 export type dependenciesType = {
     thirdPartyApi: ThirdPartyApiPort,

@@ -1,5 +1,5 @@
 import { MessageCasePort } from "../ports/primaryPorts/useCases/messageCasePort";
-import { SqsQueuePort } from "../ports/secundaryPorts/sqsQueue/sqsQueuePort";
+import { SqsQueuePort } from "../ports/secondaryPorts/sqsQueue/sqsQueuePort";
 export type dependenciesType = {
     messageQueue: SqsQueuePort,
 }
