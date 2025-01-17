@@ -3,7 +3,7 @@ import { RequestDTO } from "../DTOs/RequestDTO";
 import { ResponseDTO } from "../DTOs/ResponseDTO";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { HTTP_RESPONSES } from "../../../utils/constants";
-import { UseCasePort } from "../../../application/ports/primaryPorts/useCase/useCasePort";
+import { UseCasePort } from "../../../application/ports/primaryPorts/useCases/useCasePort";
 import { EntityPreconditionFailed } from "../../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
 import { dependenciesType } from "../../../application/useCases/useCase";
 import { TransactionValidationFail } from "../../../domain/domainErrors/EntityErrors/TransactionValidationFail";

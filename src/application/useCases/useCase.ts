@@ -1,11 +1,15 @@
 import { CaseData } from "../../domain/models/caseData";
 import { SqsQueuePort } from "../ports/secundaryPorts/sqsQueue/sqsQueuePort";
-import { TransactionTypes } from "../../domain/types/Transactions";
 import { RepositoryPort } from "../ports/secundaryPorts/repository/repositoryPort";
 import { DebitedSuccessful } from "../../domain/models/debitedSucess";
 import { ThirdPartyApiPort } from "../ports/secundaryPorts/thirdPartyApi/thirdPartyApiPort";
 import { EntityPreconditionFailed } from "../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
-import { UseCasePort } from "../ports/primaryPorts/useCase/useCasePort";
+import { UseCasePort } from "../ports/primaryPorts/useCases/useCasePort";
+import { FindAccountCasePort } from "../ports/primaryPorts/useCases/findAccountCasePort";
+import { FindAccountCase } from "./findAccountCase";
+import { TransactionCase } from "./transactionCase";
+import { MessageCase } from "./messageCase";
+import { ThirdPartyApiCase } from "./thirdParyApiCase";
 
 export type dependenciesType = {
     thirdPartyApi: ThirdPartyApiPort,
@@ -19,21 +23,27 @@ export class UseCase implements UseCasePort{
         const { thirdPartyApi, messageQueue, repository } = dependencies;
 
         try{
-            
-            const entity = await repository.findByID(data.account);
-    
-            if(!entity.isAllowed()){
+
+            const findAccount:FindAccountCasePort = new FindAccountCase();
+
+            const account = await findAccount.exec(data.account, {repository});
+
+            if(!account.isAllowed()){
                 throw new EntityPreconditionFailed();
             }
 
-            const result = await repository.transaction(entity,TransactionTypes.DEBIT,data.amount);
-    
-            await thirdPartyApi.callThirdPartyAPI(data);
-            await messageQueue.sendQueueMessage(result);
-    
+            const transactionCase = new TransactionCase();
+            const transactionResult = await transactionCase.exec({account, amount: data.amount},{repository});
+
+            const thirparyApiCase = new ThirdPartyApiCase();
+            thirparyApiCase.exec(transactionResult, {thirdPartyApi});
+            
+            const messageCase = new MessageCase();
+            messageCase.sendMessage(transactionResult,{messageQueue});
+
             const response: DebitedSuccessful = {
-                debitedAmount: result.debited,
-                cost: result.cost
+                debitedAmount: transactionResult.debited,
+                cost: transactionResult.cost
             }
     
             return response;
