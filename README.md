@@ -2,6 +2,9 @@
 Hexagonal architecture archetype for use in lambdas
 
 ## Table of Contents
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Domain](#domain)
+    - [Entities](#entities)
+    - [Models](#models)
+    - [ValueObjects](#valueObjects)
+- [Application](#application)
+- [Infrastructure](#infrastructure)
