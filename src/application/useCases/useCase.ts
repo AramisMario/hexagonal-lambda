@@ -1,8 +1,8 @@
 import { CaseData } from "../../domain/models/caseData";
-import { SqsQueuePort } from "../ports/secundaryPorts/sqsQueue/sqsQueuePort";
-import { RepositoryPort } from "../ports/secundaryPorts/repository/repositoryPort";
+import { SqsQueuePort } from "../ports/secondaryPorts/sqsQueue/sqsQueuePort";
+import { RepositoryPort } from "../ports/secondaryPorts/repository/repositoryPort";
 import { DebitedSuccessful } from "../../domain/models/debitedSucess";
-import { ThirdPartyApiPort } from "../ports/secundaryPorts/thirdPartyApi/thirdPartyApiPort";
+import { ThirdPartyApiPort } from "../ports/secondaryPorts/thirdPartyApi/thirdPartyApiPort";
 import { EntityPreconditionFailed } from "../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
 import { UseCasePort } from "../ports/primaryPorts/useCases/useCasePort";
 import { FindAccountCasePort } from "../ports/primaryPorts/useCases/findAccountCasePort";

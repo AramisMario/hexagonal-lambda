@@ -1,5 +1,5 @@
 import { TransactionCasePort } from "../ports/primaryPorts/useCases/transactionCasePort";
-import { RepositoryPort } from "../ports/secundaryPorts/repository/repositoryPort";
+import { RepositoryPort } from "../ports/secondaryPorts/repository/repositoryPort";
 import { Entity } from "../../domain/entities/Entity";
 import { TransactionTypes } from "../../domain/types/Transactions";
 export type dependenciesType = {

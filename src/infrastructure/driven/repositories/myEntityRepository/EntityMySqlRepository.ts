@@ -1,4 +1,4 @@
-import { RepositoryPort } from "../../../../application/ports/secundaryPorts/repository/repositoryPort";
+import { RepositoryPort } from "../../../../application/ports/secondaryPorts/repository/repositoryPort";
 import { MyEntityMapper } from "../../mappers/myEntityMapper/MyEntityMapper";
 import { Entity } from "../../../../domain/entities/Entity";
 import { TransactionValidationFail } from "../../../../domain/domainErrors/EntityErrors/TransactionValidationFail";
