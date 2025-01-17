@@ -6,5 +6,7 @@ Hexagonal architecture archetype for use in lambdas
     - [Entities](#entities)
     - [Models](#models)
     - [ValueObjects](#valueObjects)
+    - [Types](#types)
+    - [DomainErrors](#domainErrors)
 - [Application](#application)
 - [Infrastructure](#infrastructure)
