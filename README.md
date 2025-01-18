@@ -24,7 +24,7 @@ Hexagonal architecture archetype for use in lambdas
         - [Mappers - Driving](#drivingMappers)
 
 # domain
-The Domain is the core of the service, here we found the classes that represent .
+The Domain is the core of the service, it sholudn´t change at least the bussiness logic changes.
 
 # entities
 The Entities are classes that represent the bussiness's objects and their rules. An instanced Entity cloud be the representation of a record in the DB or not.
