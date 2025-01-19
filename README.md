@@ -34,3 +34,37 @@ Value Objects are classes used to represent data in a more complex way than a pr
 
 # domainErrors
 The Domain Errors are classes responibles for map the errors that could occur in the domain, these errors ar not exceptions but bussiness logic related errors.
+
+# application
+The Application is the layer where we define our ports and use cases.
+
+# ports
+A port is an interface that every adapter wants to connnect to the port must implement.
+
+# primaryPorts
+Primary ports are used to connect with the driving adapters (input adapters) in the infrastructure layer. 
+
+# secondaryPorts
+Secondary ports are used to connect with the driven adapters in the infrastructure layer, commonly used to call external services like databases, third party APIs, and more.
+
+# useCases
+The use cases are used to execute the logic of our application by calling entity methods, external services and executing its own logic and validations.
+
+# infrastructure
+The infrastructure layer is used to comunicate the core with "the external world", here we have impletentations of the ports known as Adapters.
+
+# driven
+
+# drivenAdapters
+
+# drivenMappers
+
+# repositories
+
+# driving
+
+# drivingAdapters
+
+# dto
+
+# drivingMappers
