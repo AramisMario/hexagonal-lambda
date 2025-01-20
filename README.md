@@ -29,8 +29,14 @@ The Domain is the core of the service. It should not change unless the business 
 # Entities
 Entities are classes that represent the business objects and their rules. An instantiated Entity could represent a record in the database or not.
 
+# Models
+There are many different approaches to define what a model is, but in this case, models are interfaces used to describe important elements of the core that are not entities, such as the core's response or the data required by the use case.
+
 # Value Objects
 Value Objects are classes used to represent data in a more complex way than a primitive value. For example, an address could be stored as a string, but if we want to attach validation logic and work with the individual parts of the address, we need something more than a string and use a class to represent the address.
+
+# Types
+The types folder is not related to hexagonal architecture; it is simply a place to store TypeScript types used in the code.
 
 # Domain Errors
 Domain Errors are classes responsible for mapping the errors that could occur in the domain. These errors are not exceptions but business logic-related errors.
