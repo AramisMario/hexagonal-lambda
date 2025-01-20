@@ -12,7 +12,7 @@ Hexagonal architecture archetype for use in lambdas
     - [Ports](#Ports)
         - [Primary Ports](#PrimaryPorts)
         - [Secondary Ports](#SecondaryPorts)
-    - [UseCases](#Use Cases)
+    - [Use Cases](#Use Cases)
 - [Infrastructure](#Infrastructure)
     - [Driven](#Driven)
         - [Driven Adapters](#drivenAdapters)
