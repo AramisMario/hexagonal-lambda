@@ -10,7 +10,7 @@ Hexagonal architecture archetype for use in lambdas
     - [Domain Errors](#DomainErrors)
 - [Application](#Application)
     - [Ports](#Ports)
-        - [Primary Ports](#PrimaryPorts)
+        - [Primary Ports](#primary-ports)
         - [Secondary Ports](#SecondaryPorts)
     - [Use Cases](#UseCases)
 - [Infrastructure](#Infrastructure)
