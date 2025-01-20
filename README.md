@@ -24,7 +24,7 @@ Hexagonal architecture archetype for use in lambdas
         - [Driving Mappers](#driving-mappers)
 
 # Domain
-The Domain is the core of the service. It should not change unless the business logic changes.
+The Domain is the core of the service. It contains the business logic and should not change unless the business requirements change.
 
 # Entities
 Entities are classes that represent the business objects and their rules. An instantiated Entity could represent a record in the database or not.
