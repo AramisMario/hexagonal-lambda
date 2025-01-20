@@ -54,6 +54,7 @@ The use cases are used to execute the logic of our application by calling entity
 The infrastructure layer is used to comunicate the core with "the external world", here we have impletentations of the ports known as Adapters.
 
 # driven
+The driven folder are for everything in the infrastructure layer related to the other services our software needs. He you'll find the secondary adapters, the repositories, and mappers to transform data from entity to plain objects and viceversa.
 
 # drivenAdapters
 The driven Adapters are implementations of the application secondary ports, we use these implementations to comunicate with external resources and mantain the core of our service completily independent of a particular external service.
@@ -65,6 +66,7 @@ A mapper is a class that take a object in a format and transform it to another f
 A repository a class responsible for the comunication with the data base, here we make our queries!.
 
 # driving
+The driving folder are for everything related to the consumption of our service, here we take care of the data that is send to ous, the origin of the request, and the appropiate response.
 
 # drivingAdapters
 The driving adapter is a function responsible por connecting the core to a particular entrypoint and make the needed validations and transformations to the data, for example we could have and adapter in the case http request was used to call our core and use other adapter when the request came from and SQS message or a eventBridge Event. Is impotant to mantain the low coupling for what is necesary to use interfaces between the adapter and use case, those interfaces are the primary adapters defined in application layer.
