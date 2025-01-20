@@ -18,12 +18,6 @@ export class Entity{
         return this.state !== "LOCKED";
     }
 
-    /*public debit(amount: number){
-        if(amount <= this.secondAttribute){
-            this.firstAttribute = this.firstAttribute - amount;
-        }
-    }*/
-
     public getState(){
         return this.state;
     }
