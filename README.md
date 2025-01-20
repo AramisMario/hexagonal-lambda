@@ -15,7 +15,7 @@ Hexagonal architecture archetype for use in lambdas
     - [UseCases](#Use Cases)
 - [Infrastructure](#Infrastructure)
     - [Driven](#Driven)
-        - [Driven Adapters](#DrivenAdapters)
+        - [Driven Adapters](#drivenAdapters)
         - [Mappers - Driven](#DrivenMappers)
         - [Repositories](#Repositories)
     - [Driving](#Driving)
