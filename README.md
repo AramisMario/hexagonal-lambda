@@ -56,15 +56,20 @@ The infrastructure layer is used to comunicate the core with "the external world
 # driven
 
 # drivenAdapters
+The driven Adapters are implementations of the application secondary ports, we use these implementations to comunicate with external resources and mantain the core of our service completily independent of a particular external service.
 
 # drivenMappers
+A mapper is a class that take a object in a format and transform it to another format needed for any layer or component, in the driven mapper the class can transform a entity to a plain object nedeed in the repository and also can take a plain object and transform to a entity.
 
 # repositories
+A repository a class responsible for the comunication with the data base, here we make our queries!.
 
 # driving
 
 # drivingAdapters
-
+The driving adapter is a function responsible por connecting the core to a particular entrypoint and make the needed validations and transformations to the data, for example we could have and adapter in the case http request was used to call our core and use other adapter when the request came from and SQS message or a eventBridge Event. Is impotant to mantain the low coupling for what is necesary to use interfaces between the adapter and use case, those interfaces are the primary adapters defined in application layer.
 # dto
+The DTO is like a contract that indicates what properties a request object must have to be valid for our service, and moreover indicates the object client must wait as a response.
 
 # drivingMappers
+This mapper takes the data that comes from the entrypoints of the software and transform it in the format needed for the Application layer.
