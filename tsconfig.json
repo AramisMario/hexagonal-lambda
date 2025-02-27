@@ -16,7 +16,9 @@
             "@domainErrors/*": ["./src/domain/domainErrors/*"],
             "@models/*": ["./src/domain/models/*"],
             "@secondaryPorts/*": ["./src/application/ports/secondaryPorts/*"],
-            "@primaryPorts/*": ["./src/application/ports/primaryPorts/*"]
+            "@primaryPorts/*": ["./src/application/ports/primaryPorts/*"],
+            "@drivingAdapters/*": ["./src/infrastructure/driving/adapters/*"],
+            "@drivenAdapters/*": ["./src/infrastructure/driven/adapters/*"]
         }
     },
     "ts-node": {
