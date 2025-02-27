@@ -21,13 +21,13 @@ export const eventBridgeAdapter = (useCase: UseCasePort) => async (event:EventBr
     }catch(error){
         switch(error.code){
             case EntityPreconditionFailed.code:
-                    // log the error and do what you need 
+                    // log the error here and do what you need 
                 break;
             case TransactionValidationFail.code:
-                    // log the error and do what you need 
+                    // log the error here and do what you need 
                 break;
             default:
-                    // log the error and do what you need 
+                    // log the error here and do what you need 
                 break;
         }
     }
