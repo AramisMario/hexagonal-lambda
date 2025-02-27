@@ -3,10 +3,10 @@ import { Utils } from "../../../../utils/utils";
 import { ResponseDTO } from "../../DTOs/ResponseDTO";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { HTTP_RESPONSES } from "../../../../utils/constants";
-import { UseCasePort } from "@application/ports/primaryPorts/useCases/useCasePort";
-import { EntityPreconditionFailed } from "@domain/domainErrors/EntityErrors/EntityPreconditionFail";
+import { UseCasePort } from "@primaryPorts/useCases/useCasePort";
+import { EntityPreconditionFailed } from "@domainErrors/EntityErrors/EntityPreconditionFail";
 import { dependenciesType } from "@application/useCases/useCase";
-import { TransactionValidationFail } from "@domain/domainErrors/EntityErrors/TransactionValidationFail";
+import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
 import { BodyMapper } from "../../mappers/BodyMapper";
 import { validate } from "class-validator";
 export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatewayProxyEventV2,dependencies:dependenciesType) => {

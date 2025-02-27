@@ -1,10 +1,10 @@
 import { EventBridgeEvent } from "aws-lambda";
-import { UseCasePort } from "@application/ports/primaryPorts/useCases/useCasePort";
+import { UseCasePort } from "@primaryPorts/useCases/useCasePort";
 import { dependenciesType } from "@application/useCases/useCase";
 import { BodyMapper } from "../../mappers/BodyMapper";
 import { validate } from "class-validator";
-import { EntityPreconditionFailed } from "@domain/domainErrors/EntityErrors/EntityPreconditionFail";
-import { TransactionValidationFail } from "@domain/domainErrors/EntityErrors/TransactionValidationFail";
+import { EntityPreconditionFailed } from "@domainErrors/EntityErrors/EntityPreconditionFail";
+import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
 export const eventBridgeAdapter = (useCase: UseCasePort) => async (event:EventBridgeEvent<any,any>,dependencies:dependenciesType) => {
 
     try{

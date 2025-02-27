@@ -9,7 +9,14 @@
         "experimentalDecorators": true,
         "paths": {
             "@application/*": ["./src/application/*"],
-            "@domain/*": ["./src/domain/*"]
+            "@domain/*": ["./src/domain/*"],
+            "@infrastructure/*": ["./src/infrastructure/*"],
+            "@useCases/*": ["./src/application/useCases/*"],
+            "@entities/*": ["./src/domain/entities/*"],
+            "@domainErrors/*": ["./src/domain/domainErrors/*"],
+            "@models/*": ["./src/domain/models/*"],
+            "@secondaryPorts/*": ["./src/application/ports/secondaryPorts/*"],
+            "@primaryPorts/*": ["./src/application/ports/primaryPorts/*"]
         }
     },
     "ts-node": {
