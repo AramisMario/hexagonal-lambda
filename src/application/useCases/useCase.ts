@@ -28,9 +28,9 @@ export class UseCase implements UseCasePort{
 
             let account;
             try{
-                await findAccount.exec(data.account, {repository});
+                account = await findAccount.exec(data.account, {repository});
             }catch(error){
-                //
+                // log the error here
             }
 
             if(!account.isAllowed()){
@@ -42,21 +42,21 @@ export class UseCase implements UseCasePort{
                 const transactionCase = new TransactionCase();
                 transactionResult = await transactionCase.exec({account, amount: data.amount},{repository});
             }catch(error){
-                //
+                // log the error here
             }
 
             try{
                 const thirparyApiCase = new ThirdPartyApiCase();
                 thirparyApiCase.exec(transactionResult, {thirdPartyApi});
             }catch(error){
-                //
+                // log the error here
             }
 
             try{
                 const messageCase = new MessageCase();
                 messageCase.sendMessage(transactionResult,{messageQueue});
             }catch(error){
-                //
+                // log the error here
             }
 
 
