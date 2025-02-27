@@ -1,7 +1,7 @@
-import { RepositoryPort } from "../../../../application/ports/secondaryPorts/repository/repositoryPort";
+import { RepositoryPort } from "@application/ports/secondaryPorts/repository/repositoryPort";
 import { MyEntityMapper } from "../../mappers/myEntityMapper/MyEntityMapper";
-import { Entity } from "../../../../domain/entities/Entity";
-import { TransactionValidationFail } from "../../../../domain/domainErrors/EntityErrors/TransactionValidationFail";
+import { Entity } from "@domain/entities/Entity";
+import { TransactionValidationFail } from "@domain/domainErrors/EntityErrors/TransactionValidationFail";
 import { databaseErrorCodes } from "./repositoryErrors";
 export class EntityMysqlRepository implements RepositoryPort{
 

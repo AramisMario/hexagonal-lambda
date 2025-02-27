@@ -1,4 +1,4 @@
-import { ThirdPartyApiPort } from "../../../../application/ports/secondaryPorts/thirdPartyApi/thirdPartyApiPort";
+import { ThirdPartyApiPort } from "@application/ports/secondaryPorts/thirdPartyApi/thirdPartyApiPort";
 export class ThridPartyApiAdapter implements ThirdPartyApiPort{
 
     private url: string;

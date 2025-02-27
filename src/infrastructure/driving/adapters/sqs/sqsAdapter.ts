@@ -1,10 +1,10 @@
 import { SQSEvent } from "aws-lambda";
-import { UseCasePort } from "../../../../application/ports/primaryPorts/useCases/useCasePort";
-import { dependenciesType } from "../../../../application/useCases/useCase";
+import { UseCasePort } from "@application/ports/primaryPorts/useCases/useCasePort";
+import { dependenciesType } from "@application/useCases/useCase";
 import { BodyMapper } from "../../mappers/BodyMapper";
 import { validate } from "class-validator";
-import { EntityPreconditionFailed } from "../../../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
-import { TransactionValidationFail } from "../../../../domain/domainErrors/EntityErrors/TransactionValidationFail";
+import { EntityPreconditionFailed } from "@domain/domainErrors/EntityErrors/EntityPreconditionFail";
+import { TransactionValidationFail } from "@domain/domainErrors/EntityErrors/TransactionValidationFail";
 export const sqsAdapter = (useCase: UseCasePort) => async (event:SQSEvent,dependencies:dependenciesType) => {
 
     const records = event.Records;
