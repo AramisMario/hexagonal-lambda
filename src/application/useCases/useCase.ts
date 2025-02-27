@@ -26,20 +26,39 @@ export class UseCase implements UseCasePort{
 
             const findAccount:FindAccountCasePort = new FindAccountCase();
 
-            const account = await findAccount.exec(data.account, {repository});
+            let account;
+            try{
+                await findAccount.exec(data.account, {repository});
+            }catch(error){
+                //
+            }
 
             if(!account.isAllowed()){
                 throw new EntityPreconditionFailed();
             }
 
-            const transactionCase = new TransactionCase();
-            const transactionResult = await transactionCase.exec({account, amount: data.amount},{repository});
+            let transactionResult;
+            try{
+                const transactionCase = new TransactionCase();
+                transactionResult = await transactionCase.exec({account, amount: data.amount},{repository});
+            }catch(error){
+                //
+            }
 
-            const thirparyApiCase = new ThirdPartyApiCase();
-            thirparyApiCase.exec(transactionResult, {thirdPartyApi});
-            
-            const messageCase = new MessageCase();
-            messageCase.sendMessage(transactionResult,{messageQueue});
+            try{
+                const thirparyApiCase = new ThirdPartyApiCase();
+                thirparyApiCase.exec(transactionResult, {thirdPartyApi});
+            }catch(error){
+                //
+            }
+
+            try{
+                const messageCase = new MessageCase();
+                messageCase.sendMessage(transactionResult,{messageQueue});
+            }catch(error){
+                //
+            }
+
 
             const response: DebitedSuccessful = {
                 debitedAmount: transactionResult.debited,
