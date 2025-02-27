@@ -1,13 +1,13 @@
-import { Utils } from "../../../utils/utils";
-import { RequestDTO } from "../DTOs/RequestDTO";
-import { ResponseDTO } from "../DTOs/ResponseDTO";
+import 'module-alias/register';
+import { Utils } from "../../../../utils/utils";
+import { ResponseDTO } from "../../DTOs/ResponseDTO";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
-import { HTTP_RESPONSES } from "../../../utils/constants";
-import { UseCasePort } from "../../../application/ports/primaryPorts/useCases/useCasePort";
-import { EntityPreconditionFailed } from "../../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
-import { dependenciesType } from "../../../application/useCases/useCase";
-import { TransactionValidationFail } from "../../../domain/domainErrors/EntityErrors/TransactionValidationFail";
-import { BodyMapper } from "../mappers/BodyMapper";
+import { HTTP_RESPONSES } from "../../../../utils/constants";
+import { UseCasePort } from "../../../../application/ports/primaryPorts/useCases/useCasePort";
+import { EntityPreconditionFailed } from "../../../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
+import { dependenciesType } from "../../../../application/useCases/useCase";
+import { TransactionValidationFail } from "../../../../domain/domainErrors/EntityErrors/TransactionValidationFail";
+import { BodyMapper } from "../../mappers/BodyMapper";
 import { validate } from "class-validator";
 export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatewayProxyEventV2,dependencies:dependenciesType) => {
 
@@ -19,6 +19,7 @@ export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatew
         const isValid = (await validate(requestDTO)).length > 0 ? false : true;
 
         if(!isValid){
+            // log the validation error
             return Utils.response(
                 400,
                 HTTP_RESPONSES.BAD_REQUEST.code,
@@ -43,18 +44,21 @@ export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatew
     }catch(error){
         switch(error.code){
             case EntityPreconditionFailed.code:
+                // log the error here
                 return Utils.response(
                     412,
                     EntityPreconditionFailed.code,
                     EntityPreconditionFailed.message
                 );
             case TransactionValidationFail.code:
+                // log the error here
                 return Utils.response(
                     412,
                     TransactionValidationFail.code,
                     TransactionValidationFail.message
                 )
             default:
+                // log the error here
                 return Utils.response(
                     HTTP_RESPONSES.INTERNAL_SERVER_ERROR.httpCode,
                     HTTP_RESPONSES.INTERNAL_SERVER_ERROR.code,
