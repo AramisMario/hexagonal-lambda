@@ -38,6 +38,11 @@
     "@secondaryPorts": "dist/application/ports/secondaryPorts/",
     "@primaryPorts": "dist/application/ports/primaryPorts/",
     "@drivingAdapters": "dist/infrastructure/driving/adapters/",
-    "@drivenRepositories": "dist/infrastructure/driving/repositories/"
+    "@drivenRepositories": "dist/infrastructure/driving/repositories/",
+    "@drivenMappers": "dist/infrastructure/driven/mappers/",
+    "@drivingMappers": "dist/infrastructure/driving/mappers/",
+    "@baseError": "dist/domain/domainErrors/BaseError/",
+    "@utils": "dist/utils/",
+    "@dtos": "dist/infrastructure/driving/DTOs/"
   }
 }
