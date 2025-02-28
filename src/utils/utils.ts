@@ -1,4 +1,4 @@
-import { ResponseDTO } from "../infrastructure/driving/DTOs/ResponseDTO";
+import { ResponseDTO } from "@dtos/ResponseDTO";
 
 export class Utils{
     static response(httpCode: number, code:string, message: string, data?:ResponseDTO){

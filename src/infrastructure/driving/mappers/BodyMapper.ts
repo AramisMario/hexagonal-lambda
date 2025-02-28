@@ -1,4 +1,4 @@
-import { RequestDTO } from "../DTOs/RequestDTO";
+import { RequestDTO } from "@dtos/RequestDTO";
 
 export class BodyMapper{
 

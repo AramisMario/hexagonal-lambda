@@ -18,7 +18,13 @@
             "@secondaryPorts/*": ["./src/application/ports/secondaryPorts/*"],
             "@primaryPorts/*": ["./src/application/ports/primaryPorts/*"],
             "@drivingAdapters/*": ["./src/infrastructure/driving/adapters/*"],
-            "@drivenAdapters/*": ["./src/infrastructure/driven/adapters/*"]
+            "@drivenAdapters/*": ["./src/infrastructure/driven/adapters/*"],
+            "@drivenRepositories/*": ["./src/infrastructure/driven/repositories/*"],
+            "@drivenMappers/*": ["./src/infrastructure/driven/mappers/*"],
+            "@drivingMappers/*": ["./src/infrastructure/driving/mappers/*"],
+            "@baseError/*": ["./src/domain/domainErrors/BaseError/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@dtos/*": ["./src/infrastructure/driving/DTOs/*"]
         }
     },
     "ts-node": {

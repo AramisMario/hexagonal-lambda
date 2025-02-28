@@ -37,6 +37,7 @@
     "@models": "dist/domain/models/",
     "@secondaryPorts": "dist/application/ports/secondaryPorts/",
     "@primaryPorts": "dist/application/ports/primaryPorts/",
-    "@drivingAdapters": "dist/infrastructure/driving/adapters/"
+    "@drivingAdapters": "dist/infrastructure/driving/adapters/",
+    "@drivenRepositories": "dist/infrastructure/driving/repositories/"
   }
 }

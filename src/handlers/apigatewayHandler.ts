@@ -1,10 +1,10 @@
 import 'module-alias/register';
 import { UseCase, dependenciesType } from "@useCases/useCase";
 import { SqsQueue } from "@drivenAdapters/sqsQueue/SqsQueue";
-import { QUEUE_URL, THIRD_PARTY_URL } from "../utils/constants";
+import { QUEUE_URL, THIRD_PARTY_URL } from "@utils/constants";
 import { ThridPartyApiAdapter } from "@drivenAdapters/thirdPartyApi/ThirdPartyApi";
-import { EntityMysqlRepository } from "@infrastructure/driven/repositories/myEntityRepository/EntityMySqlRepository";
-import { MyEntityMapper } from "@infrastructure/driven/mappers/myEntityMapper/MyEntityMapper";
+import { EntityMysqlRepository } from "@drivenRepositories/myEntityRepository/EntityMySqlRepository";
+import { MyEntityMapper } from "@drivenMappers/myEntityMapper/MyEntityMapper";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { apigatewayAdapter } from "@drivingAdapters/apigateway/apiGatewayAdapter";
 

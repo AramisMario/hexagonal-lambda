@@ -1,5 +1,5 @@
 import { RepositoryPort } from "@secondaryPorts/repository/repositoryPort";
-import { MyEntityMapper } from "../../mappers/myEntityMapper/MyEntityMapper";
+import { MyEntityMapper } from "@drivenMappers/myEntityMapper/MyEntityMapper";
 import { Entity } from "@entities/Entity";
 import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
 import { databaseErrorCodes } from "./repositoryErrors";
