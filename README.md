@@ -88,5 +88,7 @@ The driving adapter is a function responsible for connecting the core to a parti
 # DTO
 A DTO (Data Transfer Object) is like a contract that specifies the properties a request object must have to be valid for our service. Moreover, it defines the object the client can expect as a response.
 
+https://github.com/AramisMario/hexagonal-lambda/blob/3bfa7d056065d63650468b9f876c8482e2ce64f9/src/infrastructure/driving/DTOs/RequestDTO.ts#L1-L17
+
 # Driving Mappers
 This mapper takes the data that comes from the entry points of the software and transforms it into the format needed for the Application layer.
