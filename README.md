@@ -85,6 +85,8 @@ The Driving folder contains everything related to the consumption of our service
 # Driving Adapters
 The driving adapter is a function responsible for connecting the core to a particular entry point and performing the necessary validations and transformations on the data. For example, we could have an adapter for HTTP requests used to call our core and another adapter for requests coming from an SQS message or an EventBridge event. It is important to maintain low coupling, so it is necessary to use interfaces between the adapter and use case. These interfaces are the primary adapters defined in the application layer.
 
+https://github.com/AramisMario/hexagonal-lambda/blob/2d5b30d6000e623530eaa3776cd3088383fea648/src/infrastructure/driving/adapters/apigateway/apiGatewayAdapter.ts#L12-L70
+
 # DTO
 A DTO (Data Transfer Object) is like a contract that specifies the properties a request object must have to be valid for our service. Moreover, it defines the object the client can expect as a response.
 
