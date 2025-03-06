@@ -74,6 +74,8 @@ Driven Adapters are implementations of the application's secondary ports. We use
 # Driven Mappers
 A mapper is a class that takes an object in one format and transforms it into another format needed by any layer or component. In the driven mapper, the class can transform an entity into a plain object needed by the repository and vice versa.
 
+https://github.com/AramisMario/hexagonal-lambda/blob/c7ea7ff778e470f670320ff4ea00c4312b47a0f2/src/infrastructure/driven/mappers/myEntityMapper/MyEntityMapper.ts#L1-L23
+
 # Repositories
 A repository is a class responsible for communication with the database. Here we perform our queries!
 
