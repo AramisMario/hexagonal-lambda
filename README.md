@@ -52,7 +52,7 @@ A port is an interface that every adapter wanting to connect to it must implemen
 # Primary Ports
 Primary ports are used to connect with the driving adapters (input adapters) in the infrastructure layer.
 
-https://github.com/AramisMario/hexagonal-lambda/blob/dee251e65fbce68977b40c61fa1e8ba4075848dc/src/application/ports/primaryPorts/useCases/useCasePort.ts#l4-L6
+https://github.com/AramisMario/hexagonal-lambda/blob/dee251e65fbce68977b40c61fa1e8ba4075848dc/src/application/ports/primaryPorts/useCases/useCasePort.ts#L4-L6
 
 # Secondary Ports
 Secondary ports are used to connect with the driven adapters in the infrastructure layer, commonly used to call external services like databases, third-party APIs, and more.
