@@ -44,8 +44,6 @@ Domain Errors are classes responsible for mapping the errors that could occur in
 # Application
 The Application is the layer where we define our ports and use cases.
 
-https://github.com/AramisMario/hexagonal-lambda/blob/d4f5ae5976f591e480316f0cc9099c23aa3b5a64/src/application/useCases/useCase.ts#L20-L40
-
 # Ports
 A port is an interface that every adapter wanting to connect to it must implement.
 
@@ -55,8 +53,12 @@ Primary ports are used to connect with the driving adapters (input adapters) in 
 # Secondary Ports
 Secondary ports are used to connect with the driven adapters in the infrastructure layer, commonly used to call external services like databases, third-party APIs, and more.
 
+https://github.com/AramisMario/hexagonal-lambda/blob/2a2bcb2446cdaaa827fe18a41816904c0fd72c57/src/application/ports/secondaryPorts/repository/repositoryPort.ts#L1-L8
+
 # Use Cases
 Use cases execute the logic of our application by calling entity methods, external services, and performing their own logic and validations.
+
+https://github.com/AramisMario/hexagonal-lambda/blob/d4f5ae5976f591e480316f0cc9099c23aa3b5a64/src/application/useCases/useCase.ts#L20-L40
 
 # Infrastructure
 The Infrastructure layer is used to communicate the core with "the external world." Here, we implement the ports, known as Adapters.
