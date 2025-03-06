@@ -44,7 +44,7 @@ Domain Errors are classes responsible for mapping the errors that could occur in
 # Application
 The Application is the layer where we define our ports and use cases.
 
-https://github.com/AramisMario/hexagonal-lambda/blob/d4f5ae5976f591e480316f0cc9099c23aa3b5a64/src/application/useCases/useCase.ts
+https://github.com/AramisMario/hexagonal-lambda/blob/d4f5ae5976f591e480316f0cc9099c23aa3b5a64/src/application/useCases/useCase.ts#L20-L40
 
 # Ports
 A port is an interface that every adapter wanting to connect to it must implement.
