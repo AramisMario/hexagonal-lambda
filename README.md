@@ -29,6 +29,8 @@ The Domain is the core of the service. It contains the business logic and should
 # Entities
 Entities are classes that represent the business objects and their rules. An instantiated Entity could represent a record in the database or not.
 
+https://github.com/AramisMario/hexagonal-lambda/blob/02218688381425369f0e6dc7e5c012d135723ed9/src/domain/entities/Entity.ts#L1-L34
+
 # Models
 There are many different approaches to define what a model is, but in this case, models are interfaces used to describe important elements of the core that are not entities, such as the core's response or the data required by the use case.
 
