@@ -11,8 +11,14 @@ export class FindAccountCase implements FindAccountCasePort{
 
         const { repository } = dependencies;
 
-        const entity = await repository.findByID(account);
-        return entity;
+        try{
+            const entity = await repository.findByID(account);
+            return entity;
+        }catch(error){
+            // handle and log the error
+            throw error;
+        }
+
         
     }
 

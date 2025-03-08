@@ -3,6 +3,9 @@ import { MyEntityMapper } from "@drivenMappers/myEntityMapper/MyEntityMapper";
 import { Entity } from "@entities/Entity";
 import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
 import { databaseErrorCodes } from "./repositoryErrors";
+import { DATABASE_ERROR_CODES } from "./errors/repositoryErrors";
+import { EntityNotFoundError } from "../../../../domain/domainErrors/EntityErrors/EntityNotFound";
+
 export class EntityMysqlRepository implements RepositoryPort{
 
     private mapper: MyEntityMapper;
@@ -25,9 +28,8 @@ export class EntityMysqlRepository implements RepositoryPort{
     
             return this.mapper.mapToEntity(createdRecord);
         }catch(error){
-            // handle database errors
             // you could use a logging method here to regist the error code
-            throw new Error("Send message acord to error");
+            
         }
     }
 
@@ -61,9 +63,8 @@ export class EntityMysqlRepository implements RepositoryPort{
 
             return this.mapper.mapToEntity(record);
         }catch(error){
-            // handle database errors
             // you could use a logging method here to regist the error code
-            throw new Error("Send message acord to error");
+            throw new EntityNotFoundError();
         }
     }
 
@@ -99,7 +100,7 @@ export class EntityMysqlRepository implements RepositoryPort{
             // you could use a logging method here to regist the error code
 
             switch(error.code){
-                case databaseErrorCodes.TRANSACTION_VALIDATION_ERROR:
+                case DATABASE_ERROR_CODES.TRANSACTION_VALIDATION_ERROR:
                     throw new TransactionValidationFail();
                 default:
                     throw new Error("Database internal error");

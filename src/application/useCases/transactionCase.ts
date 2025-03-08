@@ -19,7 +19,12 @@ export class TransactionCase implements TransactionCasePort{
         const { repository } = dependencies;
         const {account, amount} = data;
 
-        return await repository.transaction(account, TransactionTypes.DEBIT, amount);
+        try{
+            return await repository.transaction(account, TransactionTypes.DEBIT, amount);
+        }catch(error){
+            // handle and log the error
+            throw error;
+        }
     }
 
 }

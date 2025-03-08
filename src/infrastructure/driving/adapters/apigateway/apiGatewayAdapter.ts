@@ -9,6 +9,7 @@ import { dependenciesType } from "@application/useCases/useCase";
 import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
 import { BodyMapper } from "@drivingMappers/BodyMapper";
 import { validate } from "class-validator";
+import { UnexpectedError } from '../../../../domain/domainErrors/generalErrors/unexpectedError';
 export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatewayProxyEventV2,dependencies:dependenciesType) => {
 
     try{
@@ -57,13 +58,20 @@ export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatew
                     TransactionValidationFail.code,
                     TransactionValidationFail.message
                 )
+            case UnexpectedError.code:
+                // log the error here
+                return Utils.response(
+                    500,
+                    UnexpectedError.code,
+                    UnexpectedError.message
+                )
             default:
                 // log the error here
                 return Utils.response(
-                    HTTP_RESPONSES.INTERNAL_SERVER_ERROR.httpCode,
-                    HTTP_RESPONSES.INTERNAL_SERVER_ERROR.code,
-                    HTTP_RESPONSES.INTERNAL_SERVER_ERROR.message
-                );
+                    500,
+                    UnexpectedError.code,
+                    UnexpectedError.message
+                )
         }
     }
 

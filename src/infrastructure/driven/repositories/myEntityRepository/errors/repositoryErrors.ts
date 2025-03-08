@@ -1,3 +1,3 @@
-export const databaseErrorCodes = {
+export const DATABASE_ERROR_CODES = {
     TRANSACTION_VALIDATION_ERROR: "123456"
 }

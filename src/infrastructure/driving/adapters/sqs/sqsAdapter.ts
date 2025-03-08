@@ -5,6 +5,8 @@ import { BodyMapper } from "@drivingMappers/BodyMapper";
 import { validate } from "class-validator";
 import { EntityPreconditionFailed } from "@domainErrors/EntityErrors/EntityPreconditionFail";
 import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
+import { UnexpectedError } from "../../../../domain/domainErrors/generalErrors/unexpectedError";
+
 export const sqsAdapter = (useCase: UseCasePort) => async (event:SQSEvent,dependencies:dependenciesType) => {
 
     const records = event.Records;
@@ -23,17 +25,18 @@ export const sqsAdapter = (useCase: UseCasePort) => async (event:SQSEvent,depend
         }catch(error){
             switch(error.code){
                 case EntityPreconditionFailed.code:
-                    
                     // log the error here and do what you need 
 
                     break;
                 case TransactionValidationFail.code:
+                    // log the error here and do what you need
 
+                    break;
+                case UnexpectedError.code:
                     // log the error here and do what you need
 
                     break;
                 default:
-
                     // log the error here and do what you need
 
                     break;
