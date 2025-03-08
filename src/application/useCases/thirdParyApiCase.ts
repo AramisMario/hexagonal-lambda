@@ -7,6 +7,11 @@ export type dependenciesType = {
 export class ThirdPartyApiCase implements ThirdPartyApiCasePort{
     async exec(data: any, dependencies: dependenciesType): Promise<any> {
         const { thirdPartyApi } = dependencies;
-        return await thirdPartyApi.callThirdPartyAPI(data);
+        try{
+            return await thirdPartyApi.callThirdPartyAPI(data);
+        }catch(error){
+            // handle and log the error
+            throw error;
+        }
     }
 }
