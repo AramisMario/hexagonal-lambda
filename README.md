@@ -29,6 +29,8 @@ The Domain is the core of the service. It contains the business logic and should
 # Entities
 Entities are classes that represent the business objects and their rules. An instantiated Entity could represent a record in the database or not.
 
+https://github.com/AramisMario/hexagonal-lambda/blob/02218688381425369f0e6dc7e5c012d135723ed9/src/domain/entities/Entity.ts#L1-L34
+
 # Models
 There are many different approaches to define what a model is, but in this case, models are interfaces used to describe important elements of the core that are not entities, such as the core's response or the data required by the use case.
 
@@ -50,11 +52,17 @@ A port is an interface that every adapter wanting to connect to it must implemen
 # Primary Ports
 Primary ports are used to connect with the driving adapters (input adapters) in the infrastructure layer.
 
+https://github.com/AramisMario/hexagonal-lambda/blob/dee251e65fbce68977b40c61fa1e8ba4075848dc/src/application/ports/primaryPorts/useCases/useCasePort.ts#L4-L6
+
 # Secondary Ports
 Secondary ports are used to connect with the driven adapters in the infrastructure layer, commonly used to call external services like databases, third-party APIs, and more.
 
+https://github.com/AramisMario/hexagonal-lambda/blob/2a2bcb2446cdaaa827fe18a41816904c0fd72c57/src/application/ports/secondaryPorts/repository/repositoryPort.ts#L1-L8
+
 # Use Cases
 Use cases execute the logic of our application by calling entity methods, external services, and performing their own logic and validations.
+
+https://github.com/AramisMario/hexagonal-lambda/blob/d4f5ae5976f591e480316f0cc9099c23aa3b5a64/src/application/useCases/useCase.ts#L20-L40
 
 # Infrastructure
 The Infrastructure layer is used to communicate the core with "the external world." Here, we implement the ports, known as Adapters.
@@ -68,6 +76,8 @@ Driven Adapters are implementations of the application's secondary ports. We use
 # Driven Mappers
 A mapper is a class that takes an object in one format and transforms it into another format needed by any layer or component. In the driven mapper, the class can transform an entity into a plain object needed by the repository and vice versa.
 
+https://github.com/AramisMario/hexagonal-lambda/blob/c7ea7ff778e470f670320ff4ea00c4312b47a0f2/src/infrastructure/driven/mappers/myEntityMapper/MyEntityMapper.ts#L1-L23
+
 # Repositories
 A repository is a class responsible for communication with the database. Here we perform our queries!
 
@@ -77,8 +87,12 @@ The Driving folder contains everything related to the consumption of our service
 # Driving Adapters
 The driving adapter is a function responsible for connecting the core to a particular entry point and performing the necessary validations and transformations on the data. For example, we could have an adapter for HTTP requests used to call our core and another adapter for requests coming from an SQS message or an EventBridge event. It is important to maintain low coupling, so it is necessary to use interfaces between the adapter and use case. These interfaces are the primary adapters defined in the application layer.
 
+https://github.com/AramisMario/hexagonal-lambda/blob/2d5b30d6000e623530eaa3776cd3088383fea648/src/infrastructure/driving/adapters/apigateway/apiGatewayAdapter.ts#L12-L70
+
 # DTO
 A DTO (Data Transfer Object) is like a contract that specifies the properties a request object must have to be valid for our service. Moreover, it defines the object the client can expect as a response.
+
+https://github.com/AramisMario/hexagonal-lambda/blob/3bfa7d056065d63650468b9f876c8482e2ce64f9/src/infrastructure/driving/DTOs/RequestDTO.ts#L1-L17
 
 # Driving Mappers
 This mapper takes the data that comes from the entry points of the software and transforms it into the format needed for the Application layer.

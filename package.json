@@ -20,9 +20,29 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.145",
     "aws-sdk": "^2.1691.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.6.3"
   },
   "dependencies": {
     "class-validator": "^0.14.1"
+  },
+  "_moduleAliases": {
+    "@application": "dist/application/",
+    "@domain": "dist/domain/",
+    "@infrastructure": "dist/infrastructure",
+    "@useCases": "dist/application/useCases/",
+    "@entities": "dist/domain/entities/",
+    "@domainErrors": "dist/domain/domainErrors/",
+    "@models": "dist/domain/models/",
+    "@secondaryPorts": "dist/application/ports/secondaryPorts/",
+    "@primaryPorts": "dist/application/ports/primaryPorts/",
+    "@drivingAdapters": "dist/infrastructure/driving/adapters/",
+    "@drivenRepositories": "dist/infrastructure/driving/repositories/",
+    "@drivenMappers": "dist/infrastructure/driven/mappers/",
+    "@drivingMappers": "dist/infrastructure/driving/mappers/",
+    "@baseError": "dist/domain/domainErrors/BaseError/",
+    "@utils": "dist/utils/",
+    "@dtos": "dist/infrastructure/driving/DTOs/"
   }
 }

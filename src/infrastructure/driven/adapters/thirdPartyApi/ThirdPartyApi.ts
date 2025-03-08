@@ -1,4 +1,4 @@
-import { ThirdPartyApiPort } from "../../../../application/ports/secondaryPorts/thirdPartyApi/thirdPartyApiPort";
+import { ThirdPartyApiPort } from "@secondaryPorts/thirdPartyApi/thirdPartyApiPort";
 export class ThridPartyApiAdapter implements ThirdPartyApiPort{
 
     private url: string;
@@ -8,12 +8,17 @@ export class ThridPartyApiAdapter implements ThirdPartyApiPort{
     }
 
     public async callThirdPartyAPI(data: object){
-        return await fetch(this.url,{
-            method: "POST",
-            headers:{
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data)
-        });
+        try{
+            return await fetch(this.url,{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data)
+            });
+        }catch(error){
+            
+        }
+
     }
 }

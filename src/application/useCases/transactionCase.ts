@@ -1,7 +1,7 @@
-import { TransactionCasePort } from "../ports/primaryPorts/useCases/transactionCasePort";
-import { RepositoryPort } from "../ports/secondaryPorts/repository/repositoryPort";
-import { Entity } from "../../domain/entities/Entity";
-import { TransactionTypes } from "../../domain/types/Transactions";
+import { TransactionCasePort } from "@primaryPorts/useCases/transactionCasePort";
+import { RepositoryPort } from "@secondaryPorts/repository/repositoryPort";
+import { Entity } from "@entities/Entity";
+import { TransactionTypes } from "@domain/types/Transactions";
 export type dependenciesType = {
     repository: RepositoryPort
 };
@@ -19,7 +19,12 @@ export class TransactionCase implements TransactionCasePort{
         const { repository } = dependencies;
         const {account, amount} = data;
 
-        return await repository.transaction(account, TransactionTypes.DEBIT, amount);
+        try{
+            return await repository.transaction(account, TransactionTypes.DEBIT, amount);
+        }catch(error){
+            // handle and log the error
+            throw error;
+        }
     }
 
 }

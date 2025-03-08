@@ -1,5 +1,5 @@
-import { FindAccountCasePort } from "../ports/primaryPorts/useCases/findAccountCasePort";
-import { RepositoryPort } from "../ports/secondaryPorts/repository/repositoryPort";
+import { FindAccountCasePort } from "@primaryPorts/useCases/findAccountCasePort";
+import { RepositoryPort } from "@secondaryPorts/repository/repositoryPort";
 export type dependenciesType = {
     repository: RepositoryPort
 };
@@ -11,8 +11,14 @@ export class FindAccountCase implements FindAccountCasePort{
 
         const { repository } = dependencies;
 
-        const entity = await repository.findByID(account);
-        return entity;
+        try{
+            const entity = await repository.findByID(account);
+            return entity;
+        }catch(error){
+            // handle and log the error
+            throw error;
+        }
+
         
     }
 
