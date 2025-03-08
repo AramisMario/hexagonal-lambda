@@ -1,4 +1,5 @@
-import { SqsQueuePort } from "../../../../application/ports/secondaryPorts/sqsQueue/sqsQueuePort";
+
+import { SqsQueuePort } from "@secondaryPorts/sqsQueue/sqsQueuePort";
 import { UnexpectedError } from "../../../../domain/domainErrors/generalErrors/unexpectedError";
 const AWS = require("aws-sdk");
 

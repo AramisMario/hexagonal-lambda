@@ -1,13 +1,13 @@
 import 'module-alias/register';
-import { Utils } from "../../../../utils/utils";
-import { ResponseDTO } from "../../DTOs/ResponseDTO";
+import { Utils } from "@utils/utils";
+import { ResponseDTO } from "@dtos/ResponseDTO";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
-import { HTTP_RESPONSES } from "../../../../utils/constants";
-import { UseCasePort } from "../../../../application/ports/primaryPorts/useCases/useCasePort";
-import { EntityPreconditionFailed } from "../../../../domain/domainErrors/EntityErrors/EntityPreconditionFail";
-import { dependenciesType } from "../../../../application/useCases/useCase";
-import { TransactionValidationFail } from "../../../../domain/domainErrors/EntityErrors/TransactionValidationFail";
-import { BodyMapper } from "../../mappers/BodyMapper";
+import { HTTP_RESPONSES } from "@utils/constants";
+import { UseCasePort } from "@primaryPorts/useCases/useCasePort";
+import { EntityPreconditionFailed } from "@domainErrors/EntityErrors/EntityPreconditionFail";
+import { dependenciesType } from "@application/useCases/useCase";
+import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
+import { BodyMapper } from "@drivingMappers/BodyMapper";
 import { validate } from "class-validator";
 import { UnexpectedError } from '../../../../domain/domainErrors/generalErrors/unexpectedError';
 export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatewayProxyEventV2,dependencies:dependenciesType) => {
