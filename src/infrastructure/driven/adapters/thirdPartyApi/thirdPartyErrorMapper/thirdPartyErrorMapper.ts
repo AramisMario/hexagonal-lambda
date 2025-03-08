@@ -1,6 +1,7 @@
-import { THIRD_PARTY_ERRORS } from "../errors/thirPartyErrors";
-import { UnexpectedError } from "../../../../../domain/domainErrors/generalErrors/unexpectedError";
-export class ThirdPartyApiErrorMapper{
+import { ErrorMapper } from "@infrastructure/driven/mappers/errorMapperInterface/errorMapperInterface";
+import { THIRD_PARTY_ERRORS } from "@@thirdPartyErrors/thirPartyErrors";
+import { UnexpectedError } from "@domainErrors/generalErrors/unexpectedError";
+export class ThirdPartyApiErrorMapper implements ErrorMapper{
 
     private errorCode: string;
 

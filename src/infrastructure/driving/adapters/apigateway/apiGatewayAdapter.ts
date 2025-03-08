@@ -9,7 +9,7 @@ import { dependenciesType } from "@application/useCases/useCase";
 import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
 import { BodyMapper } from "@drivingMappers/BodyMapper";
 import { validate } from "class-validator";
-import { UnexpectedError } from '../../../../domain/domainErrors/generalErrors/unexpectedError';
+import { UnexpectedError } from '@domainErrors/generalErrors/unexpectedError';
 export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatewayProxyEventV2,dependencies:dependenciesType) => {
 
     try{

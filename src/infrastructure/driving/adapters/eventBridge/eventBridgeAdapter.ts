@@ -5,7 +5,7 @@ import { BodyMapper } from "@drivingMappers/BodyMapper";
 import { validate } from "class-validator";
 import { EntityPreconditionFailed } from "@domainErrors/EntityErrors/EntityPreconditionFail";
 import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
-import { UnexpectedError } from "../../../../domain/domainErrors/generalErrors/unexpectedError";
+import { UnexpectedError } from "@domainErrors/generalErrors/unexpectedError";
 
 export const eventBridgeAdapter = (useCase: UseCasePort) => async (event:EventBridgeEvent<any,any>,dependencies:dependenciesType) => {
 

@@ -43,6 +43,8 @@
     "@drivingMappers": "dist/infrastructure/driving/mappers/",
     "@baseError": "dist/domain/domainErrors/BaseError/",
     "@utils": "dist/utils/",
-    "@dtos": "dist/infrastructure/driving/DTOs/"
+    "@dtos": "dist/infrastructure/driving/DTOs/",
+    "@repositoryErrors": "dist/infrastructure/driven/repositories/myEntityRepository/errors/",
+    "@thirdPartyErrors": "dist/infrastructure/driven/adapters/thirdPartyApi/errors/"
   }
 }
