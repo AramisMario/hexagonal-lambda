@@ -6,10 +6,10 @@ import { ThirdPartyApiPort } from "@secondaryPorts/thirdPartyApi/thirdPartyApiPo
 import { EntityPreconditionFailed } from "@domainErrors/EntityErrors/EntityPreconditionFail";
 import { UseCasePort } from "@primaryPorts/useCases/useCasePort";
 import { FindAccountCasePort } from "@primaryPorts/useCases/findAccountCasePort";
-import { FindAccountCase } from "./findAccountCase";
-import { TransactionCase } from "./transactionCase";
-import { MessageCase } from "./messageCase";
-import { ThirdPartyApiCase } from "./thirdParyApiCase";
+import { FindAccountCase } from "@useCases/findAccountCase";
+import { TransactionCase } from "@useCases/transactionCase";
+import { MessageCase } from "@useCases/messageCase";
+import { ThirdPartyApiCase } from "@useCases/thirdParyApiCase";
 
 export type dependenciesType = {
     thirdPartyApi: ThirdPartyApiPort,

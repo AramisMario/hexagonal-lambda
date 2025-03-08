@@ -24,7 +24,9 @@
             "@drivingMappers/*": ["./src/infrastructure/driving/mappers/*"],
             "@baseError/*": ["./src/domain/domainErrors/BaseError/*"],
             "@utils/*": ["./src/utils/*"],
-            "@dtos/*": ["./src/infrastructure/driving/DTOs/*"]
+            "@dtos/*": ["./src/infrastructure/driving/DTOs/*"],
+            "@repositoryErrors/*": ["./src/infrastructure/driven/repositories/myEntityRepository/errors/*"],
+            "@@thirdPartyErrors/*": ["./src/infrastructure/driven/adapters/thirdPartyApi/errors/*"]
         }
     },
     "ts-node": {
