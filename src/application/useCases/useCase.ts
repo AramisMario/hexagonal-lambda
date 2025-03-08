@@ -30,7 +30,8 @@ export class UseCase implements UseCasePort{
             try{
                 account = await findAccount.exec(data.account, {repository});
             }catch(error){
-                // log the error here
+                // log the error here and handle the error
+                throw error;
             }
 
             if(!account.isAllowed()){
@@ -42,33 +43,34 @@ export class UseCase implements UseCasePort{
                 const transactionCase = new TransactionCase();
                 transactionResult = await transactionCase.exec({account, amount: data.amount},{repository});
             }catch(error){
-                // log the error here
+                // log the error here and handle the error
+                throw error;
             }
 
             try{
                 const thirparyApiCase = new ThirdPartyApiCase();
                 thirparyApiCase.exec(transactionResult, {thirdPartyApi});
             }catch(error){
-                // log the error here
+                // log the error here and handle the error
+                throw error;
             }
 
             try{
                 const messageCase = new MessageCase();
                 messageCase.sendMessage(transactionResult,{messageQueue});
             }catch(error){
-                // log the error here
+                // log the error here and handle the error
+                throw error;
             }
-
 
             const response: DebitedSuccessful = {
                 debitedAmount: transactionResult.debited,
                 cost: transactionResult.cost
             }
-    
+
             return response;
-    
+
         }catch(error){
-            
             // some logic needed to handle de error or using a logger
             throw error;
         }
