@@ -3,7 +3,7 @@ import { SqsQueuePort } from "@secondaryPorts/sqsQueue/sqsQueuePort";
 import { RepositoryPort } from "@secondaryPorts/repository/repositoryPort";
 import { DebitedSuccessful } from "@models/debitedSucess";
 import { ThirdPartyApiPort } from "@secondaryPorts/thirdPartyApi/thirdPartyApiPort";
-import { EntityPreconditionFailed } from "@domainErrors/entityErrors/EntityPreconditionFail";
+import { EntityPreconditionFailed } from "@domainErrors/entityErrors/entityPreconditionFail";
 import { UseCasePort } from "@primaryPorts/useCases/useCasePort";
 import { FindAccountCasePort } from "@primaryPorts/useCases/findAccountCasePort";
 import { FindAccountCase } from "@useCases/findAccountCase";
