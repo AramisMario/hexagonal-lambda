@@ -1,4 +1,4 @@
-import { TransactionValidationFail } from "@domain/domainErrors/entityErrors/transactionValidationFail";
+import { TransactionValidationFail } from "@domainErrors/entityErrors/TransactionValidationFail";
 import { UnexpectedError } from "@domainErrors/generalErrors/unexpectedError";
 import { DATABASE_ERROR_CODES } from "@repositoryErrors/repositoryErrors";
 import { ErrorMapper } from "@drivenMappers/errorMapperInterface/errorMapperInterface";

@@ -3,8 +3,8 @@ import { UseCase, dependenciesType } from "@useCases/useCase";
 import { SqsQueue } from "@infrastructure/driven/adapters/sqsQueue/sqsQueue";
 import { QUEUE_URL, THIRD_PARTY_URL } from "@utils/constants";
 import { ThridPartyApiAdapter } from "@infrastructure/driven/adapters/thirdPartyApi/thirdPartyApi";
-import { EntityMysqlRepository } from "@infrastructure/driven/repositories/myEntityRepository/entityMySqlRepository";
-import { MyEntityMapper } from "@drivenMappers/myEntityMapper/myEntityMapper";
+import { EntityMysqlRepository } from '@infrastructure/driven/repositories/myEntityRepository/entityMySqlRepository';
+import { MyEntityMapper } from "@infrastructure/driven/mappers/myEntityMapper/myEntityMapper";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { apigatewayAdapter } from "@drivingAdapters/apigateway/apiGatewayAdapter";
 
