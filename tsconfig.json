@@ -22,11 +22,11 @@
             "@drivenRepositories/*": ["./src/infrastructure/driven/repositories/*"],
             "@drivenMappers/*": ["./src/infrastructure/driven/mappers/*"],
             "@drivingMappers/*": ["./src/infrastructure/driving/mappers/*"],
-            "@baseError/*": ["./src/domain/domainErrors/BaseError/*"],
+            "@baseError/*": ["./src/domain/domainErrors/baseError/*"],
             "@utils/*": ["./src/utils/*"],
             "@dtos/*": ["./src/infrastructure/driving/DTOs/*"],
             "@repositoryErrors/*": ["./src/infrastructure/driven/repositories/myEntityRepository/errors/*"],
-            "@@thirdPartyErrors/*": ["./src/infrastructure/driven/adapters/thirdPartyApi/errors/*"]
+            "@thirdPartyErrors/*": ["./src/infrastructure/driven/adapters/thirdPartyApi/errors/*"]
         }
     },
     "ts-node": {

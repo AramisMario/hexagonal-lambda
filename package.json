@@ -41,7 +41,7 @@
     "@drivenRepositories": "dist/infrastructure/driving/repositories/",
     "@drivenMappers": "dist/infrastructure/driven/mappers/",
     "@drivingMappers": "dist/infrastructure/driving/mappers/",
-    "@baseError": "dist/domain/domainErrors/BaseError/",
+    "@baseError": "dist/domain/domainErrors/baseError/",
     "@utils": "dist/utils/",
     "@dtos": "dist/infrastructure/driving/DTOs/",
     "@repositoryErrors": "dist/infrastructure/driven/repositories/myEntityRepository/errors/",

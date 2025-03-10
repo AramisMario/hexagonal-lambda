@@ -1,9 +1,9 @@
 import { RepositoryPort } from "@secondaryPorts/repository/repositoryPort";
-import { MyEntityMapper } from "@drivenMappers/myEntityMapper/MyEntityMapper";
-import { Entity } from "@entities/Entity";
-import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
+import { MyEntityMapper } from "@drivenMappers/myEntityMapper/myEntityMapper";
+import { Entity } from "@entities/entity";
+import { TransactionValidationFail } from "@domain/domainErrors/entityErrors/transactionValidationFail";
 import { DATABASE_ERROR_CODES } from "@repositoryErrors/repositoryErrors";
-import { EntityNotFoundError } from "@domainErrors/EntityErrors/EntityNotFound";
+import { EntityNotFoundError } from "@domain/domainErrors/entityErrors/entityNotFound";
 
 export class EntityMysqlRepository implements RepositoryPort{
 
