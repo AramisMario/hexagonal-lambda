@@ -1,8 +1,7 @@
-import { Entity } from "@entities/entity"
 export interface RepositoryPort{
-    create(data:any): Promise<Entity>
-    update(entity:Entity): Promise<Entity>
-    findByID<T>(id: T): Promise<Entity>
-    delete(entity: Entity): Promise<any>
-    transaction(entity: Entity, transactionType: string, amount: number): Promise<any>
+    create(data:any): Promise<any>
+    update(data:any): Promise<any>
+    findByID<T>(id: T): Promise<any>
+    delete(data: any): Promise<any>
+    transaction(account: string, transactionType: string, amount: number): Promise<any>
 }

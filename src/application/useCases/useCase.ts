@@ -10,17 +10,18 @@ import { FindAccountCase } from "@useCases/findAccountCase";
 import { TransactionCase } from "@useCases/transactionCase";
 import { MessageCase } from "@useCases/messageCase";
 import { ThirdPartyApiCase } from "@useCases/thirdParyApiCase";
+import { ServiceRepositoryPort } from "@application/ports/secondaryPorts/serviceRepository/serviceRepositoryPort";
 
 export type dependenciesType = {
     thirdPartyApi: ThirdPartyApiPort,
     messageQueue: SqsQueuePort,
-    repository: RepositoryPort
+    serviceRepository: ServiceRepositoryPort
 };
 
 export class UseCase implements UseCasePort{
 
     async exec(data: CaseData, dependencies: dependenciesType){
-        const { thirdPartyApi, messageQueue, repository } = dependencies;
+        const { thirdPartyApi, messageQueue, serviceRepository } = dependencies;
 
         try{
 
@@ -28,7 +29,7 @@ export class UseCase implements UseCasePort{
 
             let account;
             try{
-                account = await findAccount.exec(data.account, {repository});
+                account = await findAccount.exec(data.account, {serviceRepository});
             }catch(error){
                 // log the error here and handle the error
                 throw error;
@@ -41,7 +42,7 @@ export class UseCase implements UseCasePort{
             let transactionResult;
             try{
                 const transactionCase = new TransactionCase();
-                transactionResult = await transactionCase.exec({account, amount: data.amount},{repository});
+                transactionResult = await transactionCase.exec({account, amount: data.amount},{serviceRepository});
             }catch(error){
                 // log the error here and handle the error
                 throw error;

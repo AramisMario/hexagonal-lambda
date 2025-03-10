@@ -25,7 +25,7 @@
             "@baseError/*": ["./src/domain/domainErrors/baseError/*"],
             "@utils/*": ["./src/utils/*"],
             "@dtos/*": ["./src/infrastructure/driving/DTOs/*"],
-            "@repositoryErrors/*": ["./src/infrastructure/driven/repositories/myEntityRepository/errors/*"],
+            "@repositoryErrors/*": ["./src/infrastructure/driven/repositories/myEntity/repository/errors/*"],
             "@thirdPartyErrors/*": ["./src/infrastructure/driven/adapters/thirdPartyApi/errors/*"]
         }
     },
