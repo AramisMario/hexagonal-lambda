@@ -1,3 +1,0 @@
-Never put Value Objects into DTOs, events, database models etc.
-Serialize the Value Object before using in objects that going to be send 
-to other layers or processess.

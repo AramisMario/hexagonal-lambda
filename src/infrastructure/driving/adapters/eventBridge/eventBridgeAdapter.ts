@@ -1,7 +1,7 @@
 import { EventBridgeEvent } from "aws-lambda";
 import { UseCasePort } from "@primaryPorts/useCases/useCasePort";
 import { dependenciesType } from "@application/useCases/useCase";
-import { BodyMapper } from "@drivingMappers/bodyMapper";
+import { BodyMapper } from "@infrastructure/driving/mappers/bodyMapper";
 import { validate } from "class-validator";
 import { EntityPreconditionFailed } from "@domainErrors/entityErrors/entityPreconditionFail";
 import { TransactionValidationFail } from "@domainErrors/entityErrors/transactionValidationFail";
