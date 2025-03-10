@@ -9,11 +9,11 @@
         "experimentalDecorators": true,
         "paths": {
             "@application/*": ["./src/application/*"],
+            "@domainErrors/*": ["./src/domain/domainErrors/*"],
             "@domain/*": ["./src/domain/*"],
             "@infrastructure/*": ["./src/infrastructure/*"],
             "@useCases/*": ["./src/application/useCases/*"],
             "@entities/*": ["./src/domain/entities/*"],
-            "@domainErrors/*": ["./src/domain/domainErrors/*"],
             "@models/*": ["./src/domain/models/*"],
             "@secondaryPorts/*": ["./src/application/ports/secondaryPorts/*"],
             "@primaryPorts/*": ["./src/application/ports/primaryPorts/*"],
