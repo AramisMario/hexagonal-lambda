@@ -1,4 +1,4 @@
-import { BaseError } from "@baseError/BaseError";
+import { BaseError } from "@domainErrors/baseError/baseError";
 
 export class EntityInvalidAddressError extends BaseError{
 

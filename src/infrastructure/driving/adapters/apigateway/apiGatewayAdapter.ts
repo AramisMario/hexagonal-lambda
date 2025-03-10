@@ -1,13 +1,13 @@
 import 'module-alias/register';
 import { Utils } from "@utils/utils";
-import { ResponseDTO } from "@dtos/ResponseDTO";
+import { ResponseDTO } from "@infrastructure/driving/DTOs/responseDTO";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { HTTP_RESPONSES } from "@utils/constants";
 import { UseCasePort } from "@primaryPorts/useCases/useCasePort";
-import { EntityPreconditionFailed } from "@domainErrors/EntityErrors/EntityPreconditionFail";
+import { EntityPreconditionFailed } from "@domain/domainErrors/entityErrors/entityPreconditionFail";
 import { dependenciesType } from "@application/useCases/useCase";
-import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
-import { BodyMapper } from "@drivingMappers/BodyMapper";
+import { TransactionValidationFail } from "@domain/domainErrors/entityErrors/transactionValidationFail";
+import { BodyMapper } from "@infrastructure/driving/mappers/bodyMapper";
 import { validate } from "class-validator";
 import { UnexpectedError } from '@domainErrors/generalErrors/unexpectedError';
 export const apigatewayAdapter = (useCase: UseCasePort) => async (event:APIGatewayProxyEventV2,dependencies:dependenciesType) => {

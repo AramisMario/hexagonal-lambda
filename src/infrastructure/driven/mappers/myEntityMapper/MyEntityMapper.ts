@@ -1,4 +1,4 @@
-import { Entity } from "@entities/Entity";
+import { Entity } from "@entities/entity";
 
 export class MyEntityMapper{
 

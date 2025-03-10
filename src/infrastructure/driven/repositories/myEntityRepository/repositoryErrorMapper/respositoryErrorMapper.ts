@@ -1,7 +1,7 @@
-import { TransactionValidationFail } from "@domainErrors/EntityErrors/TransactionValidationFail";
+import { TransactionValidationFail } from "@domain/domainErrors/entityErrors/transactionValidationFail";
 import { UnexpectedError } from "@domainErrors/generalErrors/unexpectedError";
 import { DATABASE_ERROR_CODES } from "@repositoryErrors/repositoryErrors";
-import { ErrorMapper } from "@infrastructure/driven/mappers/errorMapperInterface/errorMapperInterface";
+import { ErrorMapper } from "@drivenMappers/errorMapperInterface/errorMapperInterface";
 export class RepositoryErrorMapper implements ErrorMapper{
 
 

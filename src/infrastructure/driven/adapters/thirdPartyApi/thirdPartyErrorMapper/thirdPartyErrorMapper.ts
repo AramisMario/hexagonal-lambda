@@ -1,5 +1,5 @@
-import { ErrorMapper } from "@infrastructure/driven/mappers/errorMapperInterface/errorMapperInterface";
-import { THIRD_PARTY_ERRORS } from "@@thirdPartyErrors/thirPartyErrors";
+import { ErrorMapper } from "@drivenMappers/errorMapperInterface/errorMapperInterface";
+import { THIRD_PARTY_ERRORS } from "@thirdPartyErrors/thirPartyErrors";
 import { UnexpectedError } from "@domainErrors/generalErrors/unexpectedError";
 export class ThirdPartyApiErrorMapper implements ErrorMapper{
 

@@ -1,4 +1,4 @@
-import { BaseError } from "@baseError/BaseError";
+import { BaseError } from "@domain/domainErrors/baseError/baseError";
 
 export class TransactionValidationFail extends BaseError{
     

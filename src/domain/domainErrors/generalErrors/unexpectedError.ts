@@ -1,4 +1,4 @@
-import { BaseError } from "@baseError/BaseError";
+import { BaseError } from "@domain/domainErrors/baseError/baseError";
 
 export class UnexpectedError extends BaseError{
     static readonly code = 'UNEXPECTED_ERROR';
