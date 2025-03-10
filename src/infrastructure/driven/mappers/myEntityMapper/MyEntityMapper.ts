@@ -2,15 +2,16 @@ import { Entity } from "@entities/entity";
 
 export class MyEntityMapper{
 
-    mapToRepository(entityProps: any){
+    mapToRepository(entity: Entity){
         return{
-            first: entityProps.frist,
-            second: entityProps.second,
-            state: entityProps.state
+            first: entity.getFirstAttribute(),
+            second: entity.getSecondAttribute(),
+            state: entity.getState(),
+            accountNumber: entity.getAccountNumber()
         }
     }
 
-    mapToEntity(record: any){
+    mapToEntity(record: any): Entity{
         const props = {
             firstAttribute: record.first,
             secondAttribute: record.second,

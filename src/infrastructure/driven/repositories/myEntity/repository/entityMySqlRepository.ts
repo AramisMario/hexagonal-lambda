@@ -2,20 +2,16 @@ import { RepositoryPort } from "@secondaryPorts/repository/repositoryPort";
 import { MyEntityMapper } from "@drivenMappers/myEntityMapper/myEntityMapper";
 import { Entity } from "@entities/entity";
 import { TransactionValidationFail } from "@domainErrors/entityErrors/TransactionValidationFail";
-import { DATABASE_ERROR_CODES } from "@repositoryErrors/repositoryErrors";
+import { DATABASE_ERROR_CODES } from "@infrastructure/driven/repositories/myEntity/repository/errors/repositoryErrors";
 import { EntityNotFoundError } from "@domainErrors/entityErrors/EntityNotFound";
+import { UnexpectedError } from "@domainErrors/generalErrors/unexpectedError";
 
 export class EntityMysqlRepository implements RepositoryPort{
 
-    private mapper: MyEntityMapper;
-    constructor(mapper:MyEntityMapper){
-        this.mapper = mapper;
-    }
 
-    async create(data:any): Promise<Entity>{
+    async create(data:any): Promise<any>{
 
         try{
-            const insertData = this.mapper.mapToRepository(data);
 
             // make your create and select query
     
@@ -25,16 +21,15 @@ export class EntityMysqlRepository implements RepositoryPort{
                 state: "ACTIVE"
             }
     
-            return this.mapper.mapToEntity(createdRecord);
+            return createdRecord;
         }catch(error){
             // you could use a logging method here to regist the error code
-            
+            throw new UnexpectedError();
         }
     }
 
-    async update(entity:Entity): Promise<Entity>{
+    async update(data:any): Promise<any>{
         try{
-            const updateData = this.mapper.mapToRepository(entity);
             // make your query
     
             const updatedRecord = {
@@ -42,15 +37,15 @@ export class EntityMysqlRepository implements RepositoryPort{
                 second: 654245,
                 state: "ACTIVE"
             }
-            return this.mapper.mapToEntity(updatedRecord);
+            return updatedRecord;
         }catch(error){
             // handle database errors
             // you could use a logging method here to regist the error code
-            throw new Error("Send message acord to error");
+            throw new UnexpectedError();
         }
     }
 
-    async findByID<T>(id: T): Promise<Entity>{
+    async findByID<T>(id: T): Promise<any>{
         try{
             // make your query
 
@@ -60,28 +55,31 @@ export class EntityMysqlRepository implements RepositoryPort{
                 state: "ACTIVE"
             }
 
-            return this.mapper.mapToEntity(record);
+            return record;
         }catch(error){
             // you could use a logging method here to regist the error code
             throw new EntityNotFoundError();
         }
     }
 
-    async delete(entity: Entity): Promise<any>{
+    async delete(data: any): Promise<any>{
         try{
             // make your query
-            return Promise.resolve(true);
+            const deletedRecord = {
+
+            }
+            return deletedRecord;
+
         }catch(error){
             // handle database errors
             // you could use a logging method here to regist the error code
-            throw new Error("Send message acord to error");
+            throw new EntityNotFoundError();
         }
     }
 
-    async transaction(entity: Entity, transactionType: string, amount: number): Promise<any> {
+    async transaction(account: any, transactionType: string, amount: number): Promise<any> {
 
         try{
-            const account = this.mapper.mapToRepository(entity);
 
             // auto invoekd function to mock a transaction
             // you could use a logging method here to regist the error code
@@ -102,7 +100,7 @@ export class EntityMysqlRepository implements RepositoryPort{
                 case DATABASE_ERROR_CODES.TRANSACTION_VALIDATION_ERROR:
                     throw new TransactionValidationFail();
                 default:
-                    throw new Error("Database internal error");
+                    throw new EntityNotFoundError();
             }
 
         }

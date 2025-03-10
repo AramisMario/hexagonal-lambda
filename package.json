@@ -44,7 +44,7 @@
     "@baseError": "dist/domain/domainErrors/baseError/",
     "@utils": "dist/utils/",
     "@dtos": "dist/infrastructure/driving/DTOs/",
-    "@repositoryErrors": "dist/infrastructure/driven/repositories/myEntityRepository/errors/",
+    "@repositoryErrors": "dist/infrastructure/driven/repositories/myEntity/repository/errors/",
     "@thirdPartyErrors": "dist/infrastructure/driven/adapters/thirdPartyApi/errors/"
   }
 }
