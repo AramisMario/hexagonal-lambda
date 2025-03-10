@@ -1,4 +1,4 @@
-import { Entity } from "@entities/entity";
+import { Entity } from "@domain/entities/entity";
 export interface ServiceRepositoryPort{
     createAccount(data:Entity): Promise<Entity>
     updateAccount(entity:Entity): Promise<Entity>

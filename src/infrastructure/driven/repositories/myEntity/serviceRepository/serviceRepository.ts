@@ -1,7 +1,7 @@
 import { RepositoryPort } from "@application/ports/secondaryPorts/repository/repositoryPort";
 import { ServiceRepositoryPort } from "@application/ports/secondaryPorts/serviceRepository/serviceRepositoryPort";
 import { Entity } from "@domain/entities/entity";
-import { MyEntityMapper } from "@drivenMappers/myEntityMapper/myEntityMapper";
+import { MyEntityMapper } from "@infrastructure/driven/mappers/myEntityMapper/myEntityMapper";
 
 export class ServiceRepository implements ServiceRepositoryPort{
 

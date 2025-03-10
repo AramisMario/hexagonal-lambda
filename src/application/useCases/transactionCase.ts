@@ -1,5 +1,4 @@
 import { TransactionCasePort } from "@primaryPorts/useCases/transactionCasePort";
-import { RepositoryPort } from "@secondaryPorts/repository/repositoryPort";
 import { Entity } from "@entities/entity";
 import { TransactionTypes } from "@domain/types/transactions";
 import { ServiceRepositoryPort } from "@application/ports/secondaryPorts/serviceRepository/serviceRepositoryPort";
